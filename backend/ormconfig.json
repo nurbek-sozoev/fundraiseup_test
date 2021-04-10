@@ -1,6 +1,6 @@
 {
   "type": "mongodb",
-  "database": "donates-db",
+  "database": "donations-db",
   "synchronize": true,
   "logging": false,
   "useUnifiedTopology": true,
