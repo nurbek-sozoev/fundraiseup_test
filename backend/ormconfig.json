@@ -1,0 +1,13 @@
+{
+  "type": "mongodb",
+  "database": "donates-db",
+  "synchronize": true,
+  "logging": false,
+  "useUnifiedTopology": true,
+  "entities": [
+    "src/models/**/*.ts"
+  ],
+  "cli": {
+    "entitiesDir": "src/models"
+  }
+}
