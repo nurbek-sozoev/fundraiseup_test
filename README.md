@@ -1,5 +1,5 @@
 # fundraiseup_test
-Решение [тестового задание](https://www.notion.so/Fullstack-test-b500e565cb89462b88003dd60927ab82) от Fundraise Up  
+Решение [тестового задания](https://www.notion.so/Fullstack-test-b500e565cb89462b88003dd60927ab82) от Fundraise Up  
 
 Папка `frontend` - содержит исходники клиентского приложения на VueJS  
 Папка `backend` - содержит исходники серверной части приложения
