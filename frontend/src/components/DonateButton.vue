@@ -1,10 +1,18 @@
 <template>
-  <button>DONATE</button>
+  <button @click="onClick">
+    DONATE
+  </button>
 </template>
 
 <script>
+  import { mapActions } from 'vuex';
+
   export default {
-    name: 'DonateButton'
+    name: 'DonateButton',
+    methods: {
+      ...mapActions(['donate']),
+      onClick() {this.donate();}
+    }
   }
 </script>
 

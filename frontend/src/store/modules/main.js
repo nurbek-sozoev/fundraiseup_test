@@ -1,4 +1,5 @@
 import { exchange, beautify } from '../../helpers';
+import backend from '../../api/backend';
 
 const state = {
   donationAmount: 40,
@@ -57,6 +58,19 @@ const actions = {
   changeAmount: ({commit}, amount) => {
     commit('setDonationAmount', amount);
   },
+  donate: ({commit, state}) => {
+    backend.post('/donations', {
+      amount: state.donationAmount,
+      currency: state.currencyCode
+    }).then(() => {
+      alert('Thank you for your donation!');
+      commit('setDonationAmount', 40);
+      commit('setCurrencyCode', 'USD');
+    }).catch(error => {
+      alert('Something went wrong!');
+      console.log(error);
+    });
+  }
 };
 
 export default {

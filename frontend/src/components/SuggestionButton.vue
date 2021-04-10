@@ -1,11 +1,11 @@
 <template>
-  <button :class="className">
+  <button :class="className" @click="onClick">
     {{currencySymbol}}{{ amountToShow }}
   </button>
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
+  import { mapGetters, mapActions } from 'vuex';
 
   export default {
     name: 'SuggestionButton',
@@ -20,6 +20,12 @@
       },
       currencySymbol() {
         return this.currency.symbol;
+      }
+    },
+    methods: {
+      ...mapActions(['changeAmount']),
+      onClick() {
+        this.changeAmount(this.amount);
       }
     }
   }
