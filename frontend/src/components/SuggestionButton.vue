@@ -1,6 +1,6 @@
 <template>
-  <button>
-    {{currency.symbol}}{{ amount }}
+  <button :class="className">
+    {{currencySymbol}}{{ amountToShow }}
   </button>
 </template>
 
@@ -10,7 +10,18 @@
   export default {
     name: 'SuggestionButton',
     props: ['amount'],
-    computed: mapGetters(['currency'])
+    computed: {
+      ...mapGetters(['currency', 'donationAmount', 'locale']),
+      className() {
+        return this.amount === this.donationAmount ? 'active' : ''
+      },
+      amountToShow() {
+        return this.amount.toLocaleString(this.locale);
+      },
+      currencySymbol() {
+        return this.currency.symbol;
+      }
+    }
   }
 </script>
 

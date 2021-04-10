@@ -6,7 +6,12 @@
       </option>
     </select>
 
-    <input type="text" @keydown="onInputKeyDown"/>
+    <input
+        type="text"
+        :value="donationAmount"
+        @input="onChangeAmount"
+        @keydown="onInputKeyDown"
+    />
   </div>
 </template>
 
@@ -15,9 +20,9 @@
 
   export default {
     name: 'DonationAmount',
-    computed: mapGetters(['currenciesOptions']),
+    computed: mapGetters(['currenciesOptions', 'donationAmount']),
     methods: {
-      ...mapActions(['changeCurrency']),
+      ...mapActions(['changeCurrency', 'changeAmount']),
       onChangeCurrency(e) {
         this.changeCurrency(e.target.value);
       },
@@ -25,6 +30,9 @@
         const isNumberOrBackspace = /[0-9]|Backspace/.test(e.key);
         if (!isNumberOrBackspace)
           e.preventDefault();
+      },
+      onChangeAmount(e) {
+        this.changeAmount(e.target.value || 0);
       }
     }
   }

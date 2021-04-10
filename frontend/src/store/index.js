@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import amount from './modules/amount';
+import main from './modules/main';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  modules: {amount}
+  modules: {main}
 });
